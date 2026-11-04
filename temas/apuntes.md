@@ -4,7 +4,7 @@
 
 icacls permite modificar permisos de archivos en Windows. Utilizamos /inheritance:r para eliminar permisos heredados de nuestra clave privada .pem, y /grant:r "${env:USERNAME}:R" para conceder permiso de lectura a nuestro usuario. De esta manera protegemos la clave y evitamos que SSH la rechace por tener permisos demasiado abiertos.
 
-2.- 
+2.-
 
 | Directorio | ¿Para qué sirve?                                |
 | ---------- | ------------------------------------------------- |
@@ -13,8 +13,7 @@ icacls permite modificar permisos de archivos en Windows. Utilizamos /inheritanc
 | `/home`  | Contiene las carpetas personales de los usuarios. |
 | `/tmp`   | Almacena archivos temporales.                     |
 
-
-3.- Una carpeta y un grupo no son lo mismo y este comando lo aclara : 
+3.- Una carpeta y un grupo no son lo mismo y este comando lo aclara :
 
 **sudo chown -R root:desarrollo /empresa/desarrollo**
 
@@ -29,7 +28,6 @@ c) Permisos: determinan quién puede leer, escribir o acceder
 
 el 2 inicial activa setgid en el directorio: los nuevos archivos y subdirectorios heredan el grupo propietario
 
-
 sudo chmod -R u+rwX,g+rwX,o-rwx /empresa/desarrollo
 
 x minúscula: Agrega permiso de ejecución siempre
@@ -37,3 +35,6 @@ x minúscula: Agrega permiso de ejecución siempre
 X: Agrega ejecució solo si el directorio o el archivo y tenian algún permiso de ejecución
 
 El propietario de un archivo es el usuario que lo creó.
+
+
+4.- Es importante hacer algo
