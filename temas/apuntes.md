@@ -32,9 +32,42 @@ sudo chmod -R u+rwX,g+rwX,o-rwx /empresa/desarrollo
 
 x minúscula: Agrega permiso de ejecución siempre
 
-X: Agrega ejecució solo si el directorio o el archivo y tenian algún permiso de ejecución
+X: Agrega ejecución solo si el directorio o el archivo ya tenian algún permiso de ejecución
 
 El propietario de un archivo es el usuario que lo creó.
 
 
-4.- Es importante hacer algo
+
+**05/ 11/2026**
+
+Reinicar la instancia me garantiza que el IP pública se mantendrá igual
+
+5.- Proceso: Programa que se ejecuta en el SO. Servicio: Conjunto de procesos que generan una funcionalidad.
+
+| Proceso                                  | Servicio                                          |
+| ---------------------------------------- | ------------------------------------------------- |
+| `sleep 600`                            | `httpd`(Apache)                                 |
+| Espera 600 segundos.                     | Atiende solicitudes HTTP.                         |
+| Se puede administrar con`ps`y`kill`. | Se administra normalmente con`systemctl`.       |
+| Tiene un PID.                            | Puede ejecutar varios procesos con distintos PID. |
+
+
+6.- **journalctl** es como un historial de acontecimientos: Permite consultar qué ocurrió con los servicios del servidor
+
+**logrotate** es como el encargado de organizar y archivar registros: Evita que los archivos de logs crezcan indefinidamente
+
+En linux, un archivo se considera oculto cuando comienza con un punto (.)
+
+
+| Símbolo          | Significado                                           |
+| ----------------- | ----------------------------------------------------- |
+| `~`(virgulilla) | Directorio personal                                   |
+| `.`             | Directorio actual                                     |
+| `..`            | Directorio padre (anterior)                           |
+| `>/`            | Directorio raíz cuando aparece al inicio de una ruta |
+
+
+7. Un alias creado directamente en la terminal solo existe durante esa sesión, desaparece al cerrarla. Al guardarla en .bashrc, Bash lo carga automáticamente cada vez que inicias una nueva sesión interactiva.
+
+Existe sesión interactiva y no interactiva: `echo "$-" >> script.sh`
+echo '[[[[$- == *i*]]]] && echo "¡Bienvenido al servidor de $EMPRESA!"' >> ~/.bashr
