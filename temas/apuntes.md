@@ -36,8 +36,6 @@ X: Agrega ejecución solo si el directorio o el archivo ya tenian algún permiso
 
 El propietario de un archivo es el usuario que lo creó.
 
-
-
 **05/ 11/2026**
 
 Reinicar la instancia me garantiza que el IP pública se mantendrá igual
@@ -51,13 +49,11 @@ Reinicar la instancia me garantiza que el IP pública se mantendrá igual
 | Se puede administrar con`ps`y`kill`. | Se administra normalmente con`systemctl`.       |
 | Tiene un PID.                            | Puede ejecutar varios procesos con distintos PID. |
 
-
 6.- **journalctl** es como un historial de acontecimientos: Permite consultar qué ocurrió con los servicios del servidor
 
 **logrotate** es como el encargado de organizar y archivar registros: Evita que los archivos de logs crezcan indefinidamente
 
 En linux, un archivo se considera oculto cuando comienza con un punto (.)
-
 
 | Símbolo          | Significado                                           |
 | ----------------- | ----------------------------------------------------- |
@@ -66,8 +62,23 @@ En linux, un archivo se considera oculto cuando comienza con un punto (.)
 | `..`            | Directorio padre (anterior)                           |
 | `>/`            | Directorio raíz cuando aparece al inicio de una ruta |
 
-
 7. Un alias creado directamente en la terminal solo existe durante esa sesión, desaparece al cerrarla. Al guardarla en .bashrc, Bash lo carga automáticamente cada vez que inicias una nueva sesión interactiva.
 
 Existe sesión interactiva y no interactiva: `echo "$-" >> script.sh`
 echo '[[[[$- == *i*]]]] && echo "¡Bienvenido al servidor de $EMPRESA!"' >> ~/.bashr
+
+
+**07/11/2026**
+
+Los scripts idempotentes son útiles para automatizar la configuración de servidores
+
+Es necesario crear una política IAM para que nuestra instancia suba los backups al bucket S3
+
+Política IAM: define qué acciones están permitidas.
+
+Rol IAM: permite que un servicio como EC2 utilice esos permisos.
+
+Podemos ejecutar un script al momento de hacer la creación manual de la instancia EC2 en Datos de Usuario:
+
+Provisionamiento manual: crear EC2 y después ejecutar el script.
+Provisionamiento automatizado: crear EC2 y dejar que User Data ejecute el script.
