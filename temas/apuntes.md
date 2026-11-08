@@ -82,3 +82,16 @@ Podemos ejecutar un script al momento de hacer la creación manual de la instanc
 
 Provisionamiento manual: crear EC2 y después ejecutar el script.
 Provisionamiento automatizado: crear EC2 y dejar que User Data ejecute el script.
+
+Para lograr scripts ejecutables automaticamente cada cierto tiempo se necesito:
+
+1. Instalar cron: sudo dnf install -y cronie
+2. Activar el servicio cron: sudo systemctl enable --now crond
+3. Programar nuestros cripts:
+
+sudo tee /etc/cron.d/andes-tech > /dev/null <<'EOF'
+*/5 * * * * root /usr/local/bin/reporte.sh
+*/5 * * * * root /usr/local/bin/backup.sh
+EOF
+
+Nota: Cron ejecuta las tareas mientras la instancia esté encendida
